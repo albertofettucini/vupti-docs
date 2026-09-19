@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!--
+    Vupti icon — concept "card-arc" (finished pass)
+    One photo card caught mid-flight, leaning 10° into its travel, with a
+    tapered five-dot flick arc rising from the lower left. No phones drawn.
+    Palette: lilac field #D6CBF1→#C8BBE7, card #FCF9F5, peach sky #F6D2BD,
+    mint hill #BDE5D2, sun + trail #FFFFFF, graphite shadow #3B354D @ 20%.
+    Design fills the full square; iOS applies the corner mask. Everything
+    that matters stays inside x 209–806, y 181–870 (the inner ~80%).
+  -->
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="75%">
+      <stop offset="0" stop-color="#D6CBF1"/>
+      <stop offset="1" stop-color="#C8BBE7"/>
+    </radialGradient>
+    <clipPath id="photo">
+      <rect x="-150" y="-195" width="300" height="390" rx="34"/>
+    </clipPath>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+  </defs>
+
+  <!-- calm lilac field (whisper of a vignette, no visible banding) -->
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+
+  <!-- one soft graphite shadow, dropped straight down (light from above) -->
+  <g transform="translate(590 466) rotate(10)">
+    <rect x="-180" y="-225" width="360" height="450" rx="64"
+          fill="#3B354D" opacity="0.2" filter="url(#soft)"/>
+  </g>
+
+  <!-- flick trail: five dots on one circular arc (centre 560,816 r 340),
+       even 24 px gaps, growing toward the card, dissolving toward the thumb;
+       the card sits on the arc's continuation, 37 px clear of the last dot -->
+  <g fill="#FFFFFF">
+    <circle cx="222.4" cy="856.7" r="13" opacity="0.45"/>
+    <circle cx="220.3" cy="801.8" r="18" opacity="0.60"/>
+    <circle cx="229.4" cy="736.5" r="24" opacity="0.76"/>
+    <circle cx="256.6" cy="662.6" r="31" opacity="0.90"/>
+    <circle cx="309.3" cy="586.3" r="38" opacity="1"/>
+  </g>
+
+  <!-- the card mid-flight (4:5, 360×450, concentric 64/34 corners) -->
+  <g transform="translate(590 434) rotate(10)">
+    <rect x="-180" y="-225" width="360" height="450" rx="64"
+          fill="#FCF9F5" stroke="#FFFFFF" stroke-width="3" stroke-opacity="0.85"/>
+    <g clip-path="url(#photo)">
+      <rect x="-150" y="-195" width="300" height="390" fill="#F6D2BD"/>
+      <circle cx="-62" cy="-92" r="46" fill="#FFFFFF"/>
+      <ellipse cx="40" cy="222" rx="236" ry="165" fill="#BDE5D2"/>
+    </g>
+  </g>
+</svg>
